@@ -4,7 +4,7 @@
   "description": "Craigs list demo test suite",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "run": "wdio",
     "sserver": "selenium-standalone install --config=./config/selenium-standalone-config.js && selenium-standalone start --config=./config/selenium-standalone-config.js"
   },
   "repository": {
