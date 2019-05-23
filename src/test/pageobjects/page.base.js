@@ -1,9 +1,9 @@
-export default class Page {
-    constructor() {
-        this.title = 'This is page base'
-    }
-
+module.exports = class Page {
     open(url) {
         browser.url(url);
     }
-}
+
+    refresh() {
+        browser.refresh();
+    }
+};

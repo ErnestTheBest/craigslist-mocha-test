@@ -1,4 +1,5 @@
 const MainPage = require('../pageobjects/main.page');
+const mainPage = new MainPage();
 const assert = require('assert');
 
 describe('webdriver.io page', () => {
@@ -7,7 +8,20 @@ describe('webdriver.io page', () => {
         // const title = browser.getTitle();
         // assert.equal(title, 'WebdriverIO · Next-gen WebDriver test framework for Node.js');
 
-        MainPage.open();
-        MainPage.switchToEnglish();
+        mainPage.open();
+        mainPage.switchToEnglish();
+        const housingPage = mainPage.openHousingPage();
+
+        housingPage.refresh();
+        /*
+
+        housingPage.open();
+        housingPage.selectSortCriteria('priceasc');
+            const searchForm = this.searchForm;
+            searchForm.sortCriteria.open();
+            searchForm.sortCriteria.getItemFromTheListByCriteria('{PRICEASC}').click()
+
+
+         */
     });
 });
