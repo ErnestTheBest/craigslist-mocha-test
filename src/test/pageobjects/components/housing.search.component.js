@@ -1,13 +1,14 @@
 module.exports = class HousingSearchComponent {
-    constructor(parentElement) {
-        this.parentElement = $(parentElement);
-    }
+  constructor (parentElement) {
+    this.parentElement = $(parentElement)
+  }
 
-    get searchInput() { return this.parentElement.$('#query') };
-    get submitButton() { return this.parentElement.$('.searchbtn') };
+  get _searchInput () { return this.parentElement.$('#query') };
 
-    searchFor(searchText) {
-        this.searchInput.setValue(searchText);
-        this.submitButton.click();
-    }
-};
+  get _submitButton () { return this.parentElement.$('.searchbtn') };
+
+  searchFor (searchText) {
+    this._searchInput.setValue(searchText)
+    this._submitButton.click()
+  }
+}

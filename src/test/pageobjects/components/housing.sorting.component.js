@@ -1,29 +1,27 @@
-const sortValues = require('../../data/housingSortingOptions');
+const sortValues = require('../../data/housingSortingOptions')
 
 module.exports = class HousingSortComponent {
-    constructor(parentElement) {
-        this.parentElement = $(parentElement);
-    }
+  constructor (parentElement) {
+    this.parentElement = $(parentElement)
+  }
 
-    get sortDropDown() { return this.parentElement.$('.search-sort') };
-    get sortingOptions() { return this.sortDropDown.$$('.dropdown-item') };
+  get _sortDropDown () { return this.parentElement.$('.search-sort') };
 
-    sortEntriesAscending() {
-        this.sortDropDown.click();
-        this.sortDropDown.$(`[data-selection="${sortValues.priceAscending}"`).click();
-    }
+  get _sortingOptions () { return this._sortDropDown.$$('.dropdown-item') };
 
-    sortEntriesDescending() {
-        this.sortDropDown.click();
-        this.sortDropDown.$(`[data-selection="${sortValues.priceDescending}"`).click();
-    }
+  sortEntriesAscending () {
+    this._sortDropDown.click()
+    this._sortDropDown.$(`[data-selection="${sortValues.priceAscending}"`).click()
+  }
 
-    availableSortingOptionsArray() {
-        const elementsArray = this.sortingOptions;
-        let arr = [];
-        for (const el of elementsArray) {
-            arr.push(el.$('a').getAttribute('data-selection'));
-        }
-        return arr;
-    }
-};
+  sortEntriesDescending () {
+    this._sortDropDown.click()
+    this._sortDropDown.$(`[data-selection="${sortValues.priceDescending}"`).click()
+  }
+
+  availableSortingOptionsArray () {
+    return this._sortingOptions.map(el => {
+      return el.$('a').getAttribute('data-selection')
+    })
+  }
+}

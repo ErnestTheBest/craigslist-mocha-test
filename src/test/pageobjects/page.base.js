@@ -1,9 +1,9 @@
 module.exports = class Page {
-    open(url) {
-        browser.url(url);
-    }
+  open (url) {
+    browser.url(url)
+  }
 
-    refresh() {
-        browser.refresh();
-    }
-};
+  refresh () {
+    browser.refresh()
+  }
+}

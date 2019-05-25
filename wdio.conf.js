@@ -20,7 +20,7 @@ exports.config = {
     //
     hostname: 'localhost',
     port: 4444,
-    path: '/wd/hub',
+    path: '/',
     //
     // ==================
     // Specify Test Files
@@ -31,7 +31,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './src/test/specs/*.js'
+        './src/test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -65,7 +65,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox',
+        browserName: 'chrome',
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -78,7 +78,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'warn',
     //
     // Set specific log levels per logger
     // loggers:

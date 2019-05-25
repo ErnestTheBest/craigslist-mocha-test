@@ -1,5 +1,8 @@
-# craigslist-test
+# craigslist.org test suite
 A demo test suite for craigslist.org
 
+## Disclamer
+This setup requires node 10.0.0+ to run
 
-//*[@id="sortable-results"]//*[contains(concat(" ",normalize-space(@class)," ")," rows ")]//h4/preceding-sibling::li
+## How to run
+1. Download 
