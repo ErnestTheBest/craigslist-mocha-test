@@ -7,7 +7,7 @@
     "stylecheck": "standard ./src/**/*.js --fix",
     "chromedriver:start": "chromedriver --port=4444",
     "test": "wdio",
-    "sserver": "selenium-standalone install --config=./config/selenium-standalone-config.js && selenium-standalone start --config=./config/selenium-standalone-config.js"
+    "server:start": "selenium-standalone install --config=./config/selenium-standalone-config.js && selenium-standalone start --config=./config/selenium-standalone-config.js"
   },
   "repository": {
     "type": "git",
