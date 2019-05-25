@@ -3,25 +3,25 @@ const HousingPage = require('./housing.page')
 const defaultUrl = require('../data/applicationUrl')
 
 module.exports = class MainPage extends Page {
-  get housingPageLink () { return $('#hhh') }
+  get _housingPageLink () { return $('#hhh') }
 
-  get englishLanguageSwitch () { return $('#langlinks>a') }
+  get _englishLanguageSwitch () { return $('#langlinks>a') }
 
   open () {
     super.open(defaultUrl)
   }
 
   openHousingPage () {
-    this.housingPageLink.click()
+    this._housingPageLink.click()
     return new HousingPage()
   }
 
   switchToEnglish () {
-    if (this.englishLanguageSwitch.isExisting()) {
-      this.englishLanguageSwitch.click()
+    if (this._englishLanguageSwitch.isExisting()) {
+      this._englishLanguageSwitch.click()
     }
     browser.waitUntil(() => {
-      return !this.englishLanguageSwitch.isExisting()
+      return !this._englishLanguageSwitch.isExisting()
     }, 5000, 'Language was not switched to english on main page', 300)
   }
 }

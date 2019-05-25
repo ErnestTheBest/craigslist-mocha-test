@@ -5,15 +5,15 @@ const SortComponent = require('./components/housing.sorting.component')
 const EntriesComponent = require('./components/housing.entries.component')
 
 module.exports = class HousingPage extends Page {
-  get searchComponent () {
+  get _searchComponent () {
     return new SearchComponent('.querybox')
   };
 
-  get sortComponent () {
+  get _sortComponent () {
     return new SortComponent('.search-legend')
   };
 
-  get entriesComponent () {
+  get _entriesComponent () {
     return new EntriesComponent('.content')
   };
 
@@ -22,23 +22,23 @@ module.exports = class HousingPage extends Page {
   }
 
   searchFor (searchText) {
-    this.searchComponent.searchFor(searchText)
+    this._searchComponent.searchFor(searchText)
   }
 
   sortAscending () {
-    this.sortComponent.sortEntriesAscending()
+    this._sortComponent.sortEntriesAscending()
   }
 
   sortDescending () {
-    this.sortComponent.sortEntriesDescending()
+    this._sortComponent.sortEntriesDescending()
   }
 
   getAvailableSortingOptions () {
-    return this.sortComponent.availableSortingOptionsArray()
+    return this._sortComponent.availableSortingOptionsArray()
   }
 
   getMainEntries () {
-    return this.entriesComponent.entriesList()
+    return this._entriesComponent.entriesList()
   }
 
   assertHousingEntriesSortedAscending () {
