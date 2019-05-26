@@ -8,18 +8,19 @@ This setup requires **node 10.0.0+** to run
 1. Setup
     * Chromedriver
         * Check Chrome version that's installed on your computer.
-        * Refer to [chromedriver version list](http://chromedriver.chromium.org/downloads) to pick correct version for you.
-        * Adjust package.json _**chromedriver**_ dependency with correct version from [this list](https://www.npmjs.com/package/chromedriver) of versions.
-        * Use `npm run chromedriver:start` to start chromedriver on port _4444_
+        * Refer to [chromedriver version list](http://chromedriver.chromium.org/downloads) to pick correct 
+        version for you.
+        * Adjust package.json _**chromedriver**_ dependency with correct version from 
+        [this list](https://www.npmjs.com/package/chromedriver) of versions.
     * Selenium server
         * Requires JVM to run
         * Check browsers version that's installed on your computer.
         * Pick correct versions of chromedriver, geckodriver, ie, edge drivers that you want to use.
-        * Adjust _./config/selenium-standalone-config.js_ with correct driver versions.
-        * Use `npm run server:start` to run local selenium server.
-            * Note: server starts by default on http://localhost:4444/wd/hub. You might need to adjust _./wdio.conf.js_ with correct path.  
+        * Adjust _./wdio.selenium.standalone.conf.js_ with correct driver versions.
+        * Both _seleniumInstallArgs_ and _seleniumArgs_ should be adjusted with proper driver versions.
 1. Running
-    * Once setup is complete, just use `npm run test` to run tests
+    * To run tests with chrome use `npm run test:chrome`
+    * To run parallel firefox and chrome `npm run test:server`
     
 ## Useful links
 * Mocha test runner [documentation](https://mochajs.org/#features).
