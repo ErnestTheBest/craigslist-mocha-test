@@ -1,5 +1,5 @@
-const Page = require('./page.base')
-const HousingPage = require('./housing.page')
+const Page = require('./pageBase')
+const HousingPage = require('./housingPage')
 const defaultUrl = require('../data/applicationUrl')
 
 module.exports = class MainPage extends Page {

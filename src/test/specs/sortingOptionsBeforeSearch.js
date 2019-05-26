@@ -1,5 +1,5 @@
 const assert = require('assert')
-const HousingPage = require('../pageobjects/housing.page')
+const HousingPage = require('../page-objects/housingPage')
 const sortValues = require('../data/housingSortingOptions')
 const housingPage = new HousingPage()
 

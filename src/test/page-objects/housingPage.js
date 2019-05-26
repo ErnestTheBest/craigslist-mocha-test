@@ -1,8 +1,8 @@
-const Page = require('./page.base')
+const Page = require('./pageBase')
 const defaultUrl = require('../data/applicationUrl')
-const SearchComponent = require('./components/housing.search.component')
-const SortComponent = require('./components/housing.sorting.component')
-const EntriesComponent = require('./components/housing.entries.component')
+const SearchComponent = require('./components/housingSearchComponent')
+const SortComponent = require('./components/housingSortingComponent')
+const EntriesComponent = require('./components/housingEntriesComponent')
 
 module.exports = class HousingPage extends Page {
   get _searchComponent () {
@@ -42,28 +42,18 @@ module.exports = class HousingPage extends Page {
   }
 
   assertHousingEntriesSortedAscending () {
-    const entryList = this.getMainEntries()
-    let previousValue
-    let isFine
-    for (const entry of entryList) {
-      const currentPrice = entry.entryPrice
-      if (!previousValue) {
-        previousValue = currentPrice
-        continue
-      }
-      if (currentPrice >= previousValue) {
-        previousValue = currentPrice
-        isFine = true
-      } else {
-        isFine = false
-        break
-      }
-    }
-
-    return isFine
+    return this._assertHousingEntriesSorted((currentPrice, previousValue) => {
+      return currentPrice >= previousValue
+    })
   }
 
   assertHousingEntriesSortedDescending () {
+    return this._assertHousingEntriesSorted((currentPrice, previousValue) => {
+      return currentPrice <= previousValue
+    })
+  }
+
+  _assertHousingEntriesSorted (comparator) {
     const entryList = this.getMainEntries()
     let previousValue
     let isFine
@@ -73,7 +63,7 @@ module.exports = class HousingPage extends Page {
         previousValue = currentPrice
         continue
       }
-      if (currentPrice <= previousValue) {
+      if (comparator(currentPrice, previousValue)) {
         previousValue = currentPrice
         isFine = true
       } else {

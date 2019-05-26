@@ -1,3 +1,5 @@
+const ListEntry = require('./housingListEntryComponent')
+
 module.exports = class HousingEntriesComponent {
   constructor (parentElement) {
     this.parentElement = $(parentElement)
@@ -11,14 +13,5 @@ module.exports = class HousingEntriesComponent {
     return this._entriesElements.map(entryElements => {
       return new ListEntry(entryElements)
     })
-  }
-}
-
-class ListEntry {
-  constructor (entryElement) {
-    this.entryText = entryElement.$('.result-row .result-title.hdrlnk').getText()
-    // I left . in numbers just in case there are some 123,456.78 numbers
-    this.entryPrice = parseFloat(entryElement.$('.result-row .result-meta .result-price')
-      .getText().replace(/[^0-9.]+/, ''))
   }
 }
