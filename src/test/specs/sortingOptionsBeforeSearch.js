@@ -10,9 +10,9 @@ describe('Craigslist housing page.', () => {
 
   it('Sorting should have correct sorting options before search is used.', () => {
     const sortingOptions = housingPage.getAvailableSortingOptions()
-    assert(sortingOptions.includes(sortValues.priceAscending), `Sorting options do not contain : ${sortValues.priceAscending}`)
-    assert(sortingOptions.includes(sortValues.priceDescending), `Sorting options do not contain : ${sortValues.priceDescending}`)
-    assert(sortingOptions.includes(sortValues.newest), `Sorting options do not contain : ${sortValues.newest}`)
-    assert(sortingOptions.length === 3, 'Sorting contains some extra values')
+    assert.ok(sortingOptions.includes(sortValues.priceAscending), `Sorting options do not contain : ${sortValues.priceAscending}`)
+    assert.ok(sortingOptions.includes(sortValues.priceDescending), `Sorting options do not contain : ${sortValues.priceDescending}`)
+    assert.ok(sortingOptions.includes(sortValues.newest), `Sorting options do not contain : ${sortValues.newest}`)
+    assert.ok(sortingOptions.length === 3, 'Sorting contains some extra values')
   })
 })
